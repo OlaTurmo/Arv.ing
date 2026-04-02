@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DesignUI.site Console - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-variant": "#dae2fd",
+                        "on-tertiary-fixed": "#002113",
+                        "tertiary-container": "#007d55",
+                        "surface": "#faf8ff",
+                        "inverse-surface": "#283044",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "outline-variant": "#c3c6d7",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-container-high": "#e2e7ff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "on-primary-container": "#eeefff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-bright": "#faf8ff",
+                        "surface-dim": "#d2d9f4",
+                        "secondary-container": "#dae2fd",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary-container": "#5c647a",
+                        "secondary": "#565e74",
+                        "inverse-on-surface": "#eef0ff",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-container": "#bdffdb",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737686",
+                        "tertiary": "#006242",
+                        "inverse-primary": "#b4c5ff",
+                        "primary-fixed": "#dbe1ff",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-container": "#eaedff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "on-surface": "#131b2e",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-tint": "#0053db",
+                        "on-background": "#131b2e",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "secondary-fixed-dim": "#bec6e0"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .forge-gradient {
+            background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+        }
+        .surface-shift {
+            transition: background-color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-screen p-4 gap-2 bg-slate-900 dark:bg-slate-950 w-64 border-r-0 fixed left-0 top-0 z-50">
+<div class="flex items-center gap-3 px-2 mb-6">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">A</div>
+<div class="flex flex-col">
+<span class="text-white font-bold font-inter text-[13px]">Project Alpha</span>
+<span class="text-slate-500 text-[11px]">V2.4.0-staged</span>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2 text-white bg-blue-600/10 rounded-lg font-inter text-[13px] font-medium opacity-90 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+                Workspace
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg font-inter text-[13px] font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+                Versions
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg font-inter text-[13px] font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+                Team
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg font-inter text-[13px] font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+                Insights
+            </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-800 flex flex-col gap-1">
+<button class="w-full py-2 mb-4 forge-gradient text-white rounded-lg font-semibold text-[13px] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                New Branch
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg font-inter text-[13px] font-medium transition-colors" href="settings_and_connections.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg font-inter text-[13px] font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 flex flex-col h-screen overflow-y-auto bg-surface">
+<!-- TopAppBar (Shared Component) -->
+<header class="sticky top-0 z-40 bg-slate-900 dark:bg-slate-950 flex justify-between items-center w-full px-6 py-3 border-b-0">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold text-white tracking-tighter">DesignUI.site Console</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-white border-b-2 border-blue-500 pb-1 font-inter text-sm tracking-tight font-medium" href="dashboard.html">Dashboard</a>
+<a class="text-slate-400 hover:text-white transition-colors font-inter text-sm tracking-tight font-medium" href="new_job_wizard.html">New Job</a>
+<a class="text-slate-400 hover:text-white transition-colors font-inter text-sm tracking-tight font-medium" href="run_detail_and_preview.html">Runs</a>
+<a class="text-slate-400 hover:text-white transition-colors font-inter text-sm tracking-tight font-medium" href="output_and_backend_handoff.html">Output</a>
+<a class="text-slate-400 hover:text-white transition-colors font-inter text-sm tracking-tight font-medium" href="settings_and_connections.html">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-1.5 text-slate-400 hover:text-white transition-all text-sm font-medium">Review output</button>
+<button class="px-4 py-1.5 bg-primary text-white rounded font-medium text-sm hover:brightness-110 transition-all">Export handoff</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="flex-1 p-6 md:p-10 max-w-7xl mx-auto w-full space-y-10">
+<!-- Welcome & Quick Action -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-headline-lg font-extrabold tracking-tight text-on-surface mb-2">Workspace Overview</h1>
+<p class="text-on-surface-variant max-w-lg">Manage your architectural UI assets and track job progress in real-time within the Atelier.</p>
+</div>
+<button class="forge-gradient text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-3 shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                    New Job
+                </button>
+</section>
+<!-- Status Metrics (Asymmetric Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 bg-surface-container-low p-6 rounded-xl flex flex-col justify-between min-h-[160px]">
+<div class="flex justify-between items-start">
+<span class="text-label-md font-semibold text-primary uppercase tracking-widest">Active Velocity</span>
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex items-baseline gap-4">
+<span class="text-5xl font-black text-on-surface tracking-tighter">4</span>
+<span class="text-headline-md font-bold text-on-surface-variant">Completed</span>
+</div>
+<p class="text-xs text-on-surface-variant/70 font-medium">Across all design branches this week</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="text-label-md font-semibold text-error uppercase tracking-widest">Blocked</span>
+<span class="material-symbols-outlined text-error" data-icon="block">block</span>
+</div>
+<span class="text-4xl font-black text-on-surface tracking-tighter">1</span>
+<p class="text-xs text-on-surface-variant/70 font-medium">Requires immediate attention</p>
+</div>
+<div class="bg-primary/5 border border-primary/10 p-6 rounded-xl flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="text-label-md font-semibold text-primary uppercase tracking-widest">Running</span>
+<span class="material-symbols-outlined text-primary" data-icon="autorenew">autorenew</span>
+</div>
+<span class="text-4xl font-black text-on-surface tracking-tighter">2</span>
+<p class="text-xs text-on-surface-variant/70 font-medium">Processing in Cloud Engine</p>
+</div>
+</section>
+<!-- Recent Jobs (Work Trays) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-md font-bold tracking-tight">Recent Work Trays</h2>
+<button class="text-primary font-semibold text-sm hover:underline">View all jobs</button>
+</div>
+<div class="space-y-3">
+<!-- Job 1 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:shadow-xl hover:shadow-slate-200/50">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-tertiary/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="package_2">package_2</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-on-surface text-base">repo-forge-core</h3>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider">v1.2.0</span>
+</div>
+<p class="text-xs text-on-surface-variant">Core library generation for DesignUI architecture</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 px-3 py-1 bg-tertiary/5 text-tertiary rounded-full">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-bold uppercase tracking-wide">Success</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-on-surface-variant hover:text-on-surface text-sm font-bold transition-colors">Review Output</button>
+<button class="px-4 py-2 bg-on-surface text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition-colors">View Handoff</button>
+</div>
+</div>
+</div>
+<!-- Job 2 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:shadow-xl hover:shadow-slate-200/50 border-l-4 border-amber-500/20">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600" data-icon="web">web</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-on-surface text-base">landing-page-v2</h3>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider">v0.8.0</span>
+</div>
+<p class="text-xs text-on-surface-variant">Marketing site assets and responsive layout templates</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 px-3 py-1 bg-amber-500/5 text-amber-600 rounded-full">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-xs font-bold uppercase tracking-wide">Review Amber</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-6 py-2 bg-amber-500 text-white text-sm font-bold rounded-lg hover:bg-amber-600 transition-colors">Resume Review</button>
+</div>
+</div>
+</div>
+<!-- Job 3 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:shadow-xl hover:shadow-slate-200/50 border-l-4 border-error/20">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="api">api</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-on-surface text-base">auth-service-api</h3>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider">v1.1.0</span>
+</div>
+<p class="text-xs text-on-surface-variant">Authentication gateway and token management output</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 px-3 py-1 bg-error/5 text-error rounded-full">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-xs font-bold uppercase tracking-wide">Issue Red</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-6 py-2 border border-error text-error text-sm font-bold rounded-lg hover:bg-error/5 transition-colors">View Issue</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Illustration/Canvas Area -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 relative h-64 rounded-2xl overflow-hidden group">
+<img alt="Architectural Blueprint UI" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:opacity-60 transition-opacity" data-alt="abstract architectural blueprint of a user interface with grid lines, soft shadows, and forge blue accent highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRmryq0pVmymfagI-BY87sU7ek7JzeG4cAl6Tp1rIjaiX6d4BoU-8gqWdMxeqr5sQMeLyulPMiWglhPb9wF0rafAnGOc0ZvzqFjNyKrgS5C1kEQIU7RBzMXcGmbMOydYanCNdWCzRzCLQbS8UHNkHeM2usrHzdKIOZcSODLsKbPK3nvsQbGl3KTYYefESlAPGV9AROFKSHECmrWj9KT74W871MtyDAFveRy0Qs_5W6RomMZW1H_L88X989PgGDUUnDdZbbjbkBzHh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-white font-bold text-xl">The Atelier Vision</p>
+<p class="text-slate-300 text-sm">Explore advanced design patterns in the laboratory.</p>
+</div>
+</div>
+<div class="bg-slate-900 rounded-2xl p-8 flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="draw">draw</span>
+<h4 class="text-white font-bold text-lg mb-2">New Branch Laboratory</h4>
+<p class="text-slate-400 text-sm mb-6">Start a fresh architectural branch and experiment with new components.</p>
+<button class="bg-white text-slate-900 py-3 rounded-lg font-bold text-sm hover:bg-slate-100 transition-colors">Open Lab</button>
+</div>
+</section>
+</div>
+<!-- Footer Metadata -->
+<footer class="p-6 border-t border-slate-200 mt-auto bg-surface-container-low flex justify-between items-center">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">© 2024 DesignUI.site Console • System Staged</span>
+<div class="flex gap-4">
+<span class="text-[11px] font-bold text-tertiary uppercase tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Engine Online
+                </span>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">US-EAST-1</span>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation (JSON requirement) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-slate-200 flex justify-around p-3 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[10px] font-medium">Runs</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="output">output</span>
+<span class="text-[10px] font-medium">Output</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DesignUI.site Console - New Job Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#6ffbbe",
+              "surface-variant": "#dae2fd",
+              "on-tertiary-fixed": "#002113",
+              "tertiary-container": "#007d55",
+              "surface": "#faf8ff",
+              "inverse-surface": "#283044",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#004ac6",
+              "outline-variant": "#c3c6d7",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#3f465c",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#dae2fd",
+              "surface-container-high": "#e2e7ff",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#434655",
+              "on-primary-container": "#eeefff",
+              "secondary-fixed": "#dae2fd",
+              "surface-bright": "#faf8ff",
+              "surface-dim": "#d2d9f4",
+              "secondary-container": "#dae2fd",
+              "on-primary-fixed": "#00174b",
+              "on-secondary-container": "#5c647a",
+              "secondary": "#565e74",
+              "inverse-on-surface": "#eef0ff",
+              "primary-container": "#2563eb",
+              "on-tertiary-container": "#bdffdb",
+              "on-tertiary-fixed-variant": "#005236",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#003ea8",
+              "on-secondary": "#ffffff",
+              "outline": "#737686",
+              "tertiary": "#006242",
+              "inverse-primary": "#b4c5ff",
+              "primary-fixed": "#dbe1ff",
+              "background": "#faf8ff",
+              "on-secondary-fixed": "#131b2e",
+              "surface-container": "#eaedff",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f2f3ff",
+              "on-surface": "#131b2e",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-tint": "#0053db",
+              "on-background": "#131b2e",
+              "tertiary-fixed-dim": "#4edea3",
+              "secondary-fixed-dim": "#bec6e0"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { color: #004ac6; }
+        .step-inactive { color: #737686; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar (JSON Managed) -->
+<header class="bg-slate-900 dark:bg-slate-950 flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50 border-b-0">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold text-white tracking-tighter">DesignUI.site Console</span>
+<nav class="hidden md:flex items-center gap-6 font-inter text-sm tracking-tight font-medium">
+<a class="text-slate-400 hover:text-white transition-colors" href="dashboard.html">Dashboard</a>
+<a class="text-white border-b-2 border-blue-500 pb-1" href="new_job_wizard.html">New Job</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="run_detail_and_preview.html">Runs</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="output_and_backend_handoff.html">Output</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="settings_and_connections.html">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-inter text-sm tracking-tight font-medium text-slate-400 hover:text-white transition-all duration-200">Review output</button>
+<button class="bg-blue-600 text-white font-inter text-sm tracking-tight font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 active:scale-[0.98]">Export handoff</button>
+</div>
+</header>
+<main class="flex-grow flex pt-[52px]">
+<!-- SideNavBar (JSON Managed) -->
+<aside class="bg-slate-900 dark:bg-slate-950 flex flex-col h-[calc(100vh-52px)] w-64 p-4 gap-2 fixed left-0 border-r-0">
+<div class="flex items-center gap-3 px-2 py-4 mb-4">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white font-bold">A</div>
+<div>
+<div class="text-white font-bold text-sm">Project Alpha</div>
+<div class="text-slate-500 text-[11px] font-medium">V2.4.0-staged</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+                    Workspace
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+                    Versions
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+                    Team
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+                    Insights
+                </a>
+</div>
+<div class="mt-auto flex flex-col gap-1 border-t border-slate-800/50 pt-4">
+<button class="bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 px-3 py-2 rounded-lg text-[13px] font-bold mb-4 transition-all">New Branch</button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="settings_and_connections.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors font-inter text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Area (The Workspace Canvas) -->
+<div class="ml-64 flex-grow bg-surface p-10 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between mb-12 px-4">
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm ring-4 ring-primary-fixed/30">1</div>
+<span class="text-[12px] font-bold tracking-tight text-primary">Project Context</span>
+</div>
+<div class="h-[2px] flex-grow bg-surface-container-high mx-4 mb-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-sm">2</div>
+<span class="text-[12px] font-medium tracking-tight text-on-surface-variant">Design Input</span>
+</div>
+<div class="h-[2px] flex-grow bg-surface-container-high mx-4 mb-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-sm">3</div>
+<span class="text-[12px] font-medium tracking-tight text-on-surface-variant">UI Definition</span>
+</div>
+<div class="h-[2px] flex-grow bg-surface-container-high mx-4 mb-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-sm">4</div>
+<span class="text-[12px] font-medium tracking-tight text-on-surface-variant">Finalize</span>
+</div>
+</div>
+<!-- Form Stage Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Primary Input Column -->
+<div class="lg:col-span-8 space-y-10">
+<header>
+<h1 class="text-headline-lg font-extrabold tracking-tight text-on-surface mb-2">Initialize Workspace</h1>
+<p class="text-body-md text-on-surface-variant opacity-80">Define the architectural foundation for your new job deployment.</p>
+</header>
+<div class="space-y-8">
+<!-- Repository Name -->
+<section>
+<label class="block text-label-md font-bold text-on-surface mb-3 uppercase tracking-wider" for="repo-name">Repository Name</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-0 ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary rounded-xl px-4 py-3.5 text-body-md font-medium transition-all shadow-sm" id="repo-name" placeholder="repo-forge-core-engine" type="text"/>
+<div class="absolute right-4 top-3.5 text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+</div>
+</section>
+<!-- Project Description -->
+<section>
+<label class="block text-label-md font-bold text-on-surface mb-3 uppercase tracking-wider" for="project-desc">Project Description</label>
+<textarea class="w-full bg-surface-container-lowest border-0 ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary rounded-xl px-4 py-3.5 text-body-md font-medium transition-all shadow-sm resize-none" id="project-desc" placeholder="Describe the architectural intent, target audience, and core system mechanics..." rows="6"></textarea>
+<div class="mt-2 flex justify-end">
+<span class="text-[11px] text-outline font-medium">Markdown supported (DESIGN.md)</span>
+</div>
+</section>
+<!-- Primary Goals (Chips) -->
+<section>
+<label class="block text-label-md font-bold text-on-surface mb-4 uppercase tracking-wider">Primary System Goals</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded bg-primary text-on-primary text-[13px] font-bold shadow-md hover:translate-y-[-1px] transition-all flex items-center gap-2">
+                                        Performance
+                                        <span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</button>
+<button class="px-5 py-2.5 rounded bg-surface-container-high text-on-surface-variant text-[13px] font-bold hover:bg-surface-variant transition-all">Scalability</button>
+<button class="px-5 py-2.5 rounded bg-surface-container-high text-on-surface-variant text-[13px] font-bold hover:bg-surface-variant transition-all">Accessibility</button>
+<button class="px-5 py-2.5 rounded border border-dashed border-outline-variant text-outline text-[13px] font-bold hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                                        Add Goal
+                                    </button>
+</div>
+</section>
+</div>
+<!-- Actions -->
+<div class="pt-6 border-t border-surface-container">
+<div class="flex items-center justify-between">
+<button class="text-primary font-bold text-sm px-6 py-3 hover:bg-primary/5 rounded-xl transition-all">Save as Draft</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white font-bold text-sm px-10 py-3.5 rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Next Stage</button>
+</div>
+</div>
+</div>
+<!-- Sidebar Validation / Context Column -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Validation Checklist Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/50">
+<h3 class="text-label-md font-bold text-on-surface mb-6 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="fact_check">fact_check</span>
+                                Validation Guide
+                            </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-[13px] font-bold text-on-surface">Repository Format</p>
+<p class="text-[11px] text-on-surface-variant">Uses kebab-case and contains no special characters.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-[13px] font-bold text-on-surface">Goal Selection</p>
+<p class="text-[11px] text-on-surface-variant">At least one primary architectural goal is selected.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[18px] text-outline-variant mt-0.5" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div class="opacity-60">
+<p class="text-[13px] font-bold text-on-surface">Context Length</p>
+<p class="text-[11px] text-on-surface-variant">Description exceeds 200 character minimum for AI parsing.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- System Visual Context -->
+<div class="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
+<img alt="abstract architectural blueprint with clean geometric lines and blue highlights" class="w-full h-full object-cover" data-alt="abstract architectural blueprint with clean geometric lines and blue highlights, professional design studio aesthetic with minimalist lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATdwNPiNDiNqOpl9Pd1zuY9kjA5_YmUL9rRgHhj4XV1KtT7lFDD0V9Cl_OR3l6Inp2GrSBHvsg2-doeJCEvRAfTggpqOKdNsI9P06U0UrcKCsjZcUdYhJaajzFH2bqbsarjTPISiMw72GkS8mJaqpu2Uq1snigZC-jqt4jLqc0lJQ-U9oVvg7fP2aD9N2KDLf6wYbjSEjtQZyj2Z4hp7HzrYenZUIxFNrN4iWlt1tJpsBmlexnywmeB-iElZ4U4MEczcFT-8XZRQ5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white text-[11px] font-medium opacity-80 uppercase tracking-widest mb-1">Visual Anchor</p>
+<p class="text-white text-[14px] font-bold">Forge Core Engine Workspace</p>
+</div>
+</div>
+<!-- Tips Panel -->
+<div class="p-4 bg-primary-container/10 border-l-4 border-primary rounded-r-lg">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="lightbulb">lightbulb</span>
+<p class="text-[12px] font-medium text-on-primary-fixed-variant leading-relaxed">
+                                    Providing a detailed <span class="font-bold">DESIGN.md</span> helps the engine pre-configure your component primitives.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression Rule Active: Not rendering FAB on Wizard pages -->
+</body></html>

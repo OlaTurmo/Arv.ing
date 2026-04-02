@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DesignUI.site | The Architectural Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-dim": "#d2d9f4",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container-low": "#f2f3ff",
+                        "inverse-on-surface": "#eef0ff",
+                        "tertiary": "#006242",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-variant": "#dae2fd",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed": "#dae2fd",
+                        "on-surface": "#131b2e",
+                        "primary-container": "#2563eb",
+                        "on-background": "#131b2e",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#eeefff",
+                        "secondary": "#565e74",
+                        "surface-bright": "#faf8ff",
+                        "background": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "outline": "#737686",
+                        "surface": "#faf8ff",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-container": "#eaedff",
+                        "tertiary-container": "#007d55",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary-container": "#dae2fd",
+                        "primary": "#004ac6",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-container": "#bdffdb",
+                        "on-secondary-container": "#5c647a",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-surface": "#283044",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf8ff; }
+        .glass-panel {
+            background: rgba(242, 243, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-light {
+            animation: pulse-opacity 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">DesignUI.site</div>
+<div class="hidden md:flex items-center gap-8 font-inter body-md tracking-tight">
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="index.html#features">Features</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-200 ease-in-out hover:opacity-80" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-200 ease-in-out hover:opacity-80" href="index.html#pricing">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-400 font-inter body-md scale-95 active:scale-90 transition-transform">Sign In</button>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-semibold text-sm scale-95 active:scale-90 transition-transform shadow-md">Get Started</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10 space-y-8">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded text-xs font-bold tracking-widest uppercase text-primary">Foundry Modern v2.0</div>
+<h1 class="text-5xl lg:text-7xl font-extrabold tracking-tighter text-on-background leading-tight">
+                    Elevate Your <br/>Design Ecosystem
+                </h1>
+<p class="text-lg lg:text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                    Architecting precision interfaces for the next generation of digital-first brands. Experience the Atelier of modern UI engineering.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-primary-container text-on-primary-container rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 scale-100 hover:scale-[1.02] active:scale-95">
+                        Get Started
+                    </button>
+<button class="px-8 py-4 bg-surface-container-high text-on-surface rounded-lg font-bold hover:bg-surface-container-highest transition-all duration-300 scale-100 hover:scale-[1.02] active:scale-95">
+                        Learn More
+                    </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full"></div>
+<img alt="DesignUI.site Workstation" class="relative rounded-xl shadow-2xl border border-white/10 w-full object-cover" data-alt="Ultra-modern minimalist workspace with multiple high-resolution displays showing architectural UI design layouts, soft daylight coming from a large window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoL4_GUwg4w15_fTQ4N6yBIG5WK4u6-fr8pW90zvJxSzFw1KUWR8s-iihYviUfDD1f1vm9PLC70xLVbPZUOCIRu10HhH4jMZOb5vsQsmDL2Q2eYjqKPJeyykH0K6kjRcCp112VdvFBARKIlkJ0pKTyRxsARVUprckn8B-ElzEAjWvMe-bix_Hs83vo7-4MkTyBUUVICpml1mTlRHG0jFdo6WhweQ2mcw7CKwug_ntkg-AvNchv2Biz5kADNyCYRm2eLz5YAfNomJP_"/>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="py-12 bg-surface-container-low border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-xs font-bold tracking-widest text-outline uppercase mb-8">Trusted by Industry Leaders</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 grayscale opacity-60">
+<div class="text-2xl font-black text-on-surface tracking-tighter">VOX</div>
+<div class="text-2xl font-black text-on-surface tracking-tighter">NEXUS</div>
+<div class="text-2xl font-black text-on-surface tracking-tighter">AURA</div>
+<div class="text-2xl font-black text-on-surface tracking-tighter">STARK</div>
+<div class="text-2xl font-black text-on-surface tracking-tighter">GRID</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-24 lg:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+<h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-on-surface">The Architectural Standard</h2>
+<p class="text-on-surface-variant">Built for teams that prioritize precision, scalability, and aesthetic integrity in every pixel.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Precision -->
+<div class="glass-panel p-10 rounded-xl border border-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+<div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<img alt="Precision Icon" class="w-10 h-10" data-alt="Glassmorphic abstract icon representing precision with geometric shapes and translucent blue gradients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkvEwonMi7XAT2J3CRQykz99MphEG5oyqecB1gpL3H5LFRP-S1aKONGHjSPzTNRc4GAUv6ygiXIFyQdKsnpzSd4otkuqEDxWi7NmwmdTPaU9YMpnukAHLJC65dCcWN1BzDv-JvCMaGBJnCAjPEtCqH99cwmkDRs3FfZfbUnbpW6x2GgryoUnhAAG7EPrQ0zMC0bgiHZS6aEYK09b1B-2TBq6TwJ5AJ-fAHwe1mAPhMxcIItgnn4h4SDzAPdX-ukDMCY6h1PdRag26S"/>
+</div>
+<h3 class="text-xl font-bold mb-3">Precision</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Sub-pixel accuracy with automated grid alignment and mathematical layout constraints built into the core.</p>
+</div>
+<!-- Automation -->
+<div class="glass-panel p-10 rounded-xl border border-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+<div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<img alt="Automation Icon" class="w-10 h-10" data-alt="Glassmorphic abstract icon representing automation with flowing gear-like shapes and translucent gradients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYHorOLIfJ6cbf6LsN4HJCDNSjMKnTUJ2OQd9vv_sc-O8W0JOQvUhrDF68styZrTQU_P14dciMHdJs9yPlbps_BpMP4MiIR3tmC5EYWlX91flm7V1I0hHzB2PsNiRGGQwuj8N-ns4GMYlisy0eeTP_NzdezApHnqeHkPhxYBOqzDf2k2qG8oJj8vwqR3DxQqJubjjEhAsWvgz-SXTUF3glNu-IcXOTsPzVWfj9peO_bJ7xrHA4xmLk5Yg82BpAPTe1d1qpYFy5XO_S"/>
+</div>
+<h3 class="text-xl font-bold mb-3">Automation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Dynamic token propagation and auto-layout systems that adapt to content changes instantaneously.</p>
+</div>
+<!-- Handoff -->
+<div class="glass-panel p-10 rounded-xl border border-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
+<div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<img alt="Handoff Icon" class="w-10 h-10" data-alt="Glassmorphic abstract icon representing handoff with arrow symbols and translucent blue overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAesPHQuwLyBHiWWXWP2iUWCbquaGosJzzjqONGtoOebIfj8-3cPArCK66x36MXFyFcLhtrdim_7GPe0e3dNwZ_V46s-gFlcwufOMXfG0DzdZGcM8JXvNeDiETdPn06BYGDvcu5OF-p9mgTSs6v_9XYUAipWzy0l4PA6ZkFQB3Aq4BmNb4u8EskdY4sywhJf402jdP2w9JkeWd3puK11VM3hXR4uTyy01RfyXiuvPgaWJrSxZ-5i-wDQyi1O94SXzOg75vpnIkDi40Q"/>
+</div>
+<h3 class="text-xl font-bold mb-3">Handoff</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">One-click engineering sync that translates design intent directly into production-ready Tailwind components.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Performance Section (Dark Contrast) -->
+<section class="py-24 lg:py-32 bg-[#0F172A] relative overflow-hidden text-white">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-container blur-[120px] rounded-full"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="relative group">
+<img alt="Enterprise Hardware" class="rounded-xl shadow-2xl border border-slate-700/50" data-alt="Close-up of a high-end enterprise server rack with glowing blue LED indicator lights in a dark data center setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtVHoR9DyizFH_rmztva8vlL0jnfP5Iljn6vyPCvWCUvirtr_-4obV7mQ7j0ZEo3gnfCLi1o0SeYdluTFDLDqI2XOkiJ7Po_it99UV_roYTefDo0Tkid37_mNouHFAB0sTWhIVlJGFpWSw2lCe4c9xj6JfSZm_bw33Cr5ZG6nvvmu-APkKiwwBWZIRFpN2Eo85umcaO3wU_Bw6C7v2gsGYhi7iPyWj34F2CrO5IaHb5bvvd-YFqeN-zlp_CBFIcgg5Ojo2uHyECrXU"/>
+<!-- Pulsing Indicator Lights -->
+<div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full blur-[2px] pulse-light"></div>
+<div class="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-500 rounded-full blur-[2px] pulse-light" style="animation-delay: 1s"></div>
+<div class="absolute bottom-1/4 left-1/2 w-2 h-2 bg-blue-300 rounded-full blur-[2px] pulse-light" style="animation-delay: 0.5s"></div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="text-4xl lg:text-5xl font-bold tracking-tight">Enterprise-Grade Performance and Scalability</h2>
+<p class="text-slate-400 text-lg leading-relaxed">
+                        The DesignUI.site Console is built on a proprietary architecture that handles thousands of assets and complex design systems without a millisecond of lag.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="text-slate-300">Global edge-delivery for design tokens</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="text-slate-300">99.99% Uptime SLA for enterprise teams</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="text-slate-300">AES-256 asset encryption at rest and in transit</span>
+</li>
+</ul>
+<div class="pt-4">
+<button class="px-8 py-3 bg-white text-slate-900 rounded font-bold hover:bg-slate-100 transition-colors">View Infrastructure Data</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-24 lg:py-40 bg-surface relative">
+<div class="max-w-4xl mx-auto px-6 text-center space-y-10">
+<h2 class="text-5xl lg:text-6xl font-extrabold tracking-tighter text-on-surface">Start Building Today</h2>
+<p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
+                Join over 10,000 teams architecting the future of the web with DesignUI.site. Deployment is instant; the results are permanent.
+            </p>
+<div class="flex justify-center pt-4">
+<button class="group relative px-12 py-5 bg-primary text-white rounded-lg font-bold text-lg shadow-2xl hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-1">
+<span class="relative z-10">Get Started Now</span>
+<div class="absolute inset-0 bg-primary-container rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center -z-0"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 dark:bg-slate-950 w-full py-12 border-t border-slate-800">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-6">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-lg font-bold text-white mb-6">DesignUI.site</div>
+<p class="font-inter text-sm text-slate-400 leading-relaxed">
+                    The Architectural Atelier for high-end digital design systems.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold text-sm tracking-widest uppercase">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Careers</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold text-sm tracking-widest uppercase">Product</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="index.html#features">Features</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Design Tokens</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Infrastructure</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold text-sm tracking-widest uppercase">Resources</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Documentation</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Support</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Community</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold text-sm tracking-widest uppercase">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Privacy</a></li>
+<li><a class="text-slate-400 hover:text-blue-400 transition-colors duration-200 font-inter text-sm" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800">
+<p class="font-inter text-sm text-slate-400 text-center">
+                © 2024 DesignUI.site. The Architectural Atelier.
+            </p>
+</div>
+</footer>
+</body></html>
